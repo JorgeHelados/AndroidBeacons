@@ -12,12 +12,16 @@ import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 // ------------------------------------------------------------------
@@ -30,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String ETIQUETA_LOG = ">>>>";
 
     private static final int CODIGO_PETICION_PERMISOS = 11223344;
+
+    private TextView textView;
+    private TextView conexionView;
+    private SubidaDato Conexion;
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -337,6 +345,23 @@ public class MainActivity extends AppCompatActivity {
         // Other 'case' lines to check for other
         // permissions this app might request.
     } // ()
+
+    public void SubirDato(View v) {
+        // Crea el objeto Dato que deseas subir
+        String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()); // La hora actual
+        String valor = textView.getText().toString(); // El valor del TextView
+
+        Dato dato = new Dato("H2O",Double.parseDouble(valor), currentTime,"Mi casa" ); // Cambia estos valores según lo que necesites
+        Conexion.SubirDato(dato);
+    }
+    // --------------------------------------------------------------
+    // --------------------------------------------------------------
+    public void ComprobarConexion(View v) {
+        String responseMessage = Conexion.ComprobarConexion();
+
+        // Cambia el TextView para mostrar la respuesta
+        conexionView.setText(responseMessage);
+    }
 
 } // class
 // --------------------------------------------------------------
