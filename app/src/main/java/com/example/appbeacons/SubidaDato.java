@@ -11,10 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SubidaDato {
 
-    //private static final String BASE_URL = "http://192.168.1.22:4000/";
-    //private static final String BASE_URL = "http://10.236.35.77:4000/";
-    //private static final String BASE_URL = "http://host.docker.internal:4000/";
-    private static final String BASE_URL = "http://192.168.75.193:4000/";
+    private static final String BASE_URL = "http://192.168.69.191:4000/";   // Esto es mi IP y el puerto de admin
     private ApiService apiService;
     private Dato dato; // Variable para almacenar el dato que se va a subir
 

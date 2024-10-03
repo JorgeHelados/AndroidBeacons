@@ -1,18 +1,21 @@
 package com.example.appbeacons;
 
 // Clase modelo que representa los datos que enviarás
+// Ordenar como en la BBDD
 public class Dato {
-    private String gas;
-    private double valor;
     private String hora;
     private String lugar;
+    private String gas;
+    private double cantidad;
+
 
     // Constructor
-    public Dato(String gas, double valor, String hora, String lugar) {
-        this.gas = gas;
-        this.valor = valor;
+    // Ordenar como en la BBDD
+    public Dato(String hora, String lugar, String gas, double cantidad) {  //esto tambien ordenar
         this.hora = hora;
         this.lugar = lugar;
+        this.gas = gas;
+        this.cantidad = cantidad;
     }
 
     // Getters y setters
@@ -25,11 +28,11 @@ public class Dato {
     }
 
     public double getValor() {
-        return valor;
+        return cantidad;
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        this.cantidad = valor;
     }
 
     public String getHora() {

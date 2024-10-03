@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int CODIGO_PETICION_PERMISOS = 11223344;
 
-    private TextView textView;
-    private TextView conexionView;
-    private SubidaDato Conexion;
+    public TextView textView;
+    public TextView conexionView;
+    public SubidaDato Conexion;
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -318,6 +318,9 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, " onCreate(): termina ");
 
+        textView = findViewById(R.id.textView);
+        conexionView=findViewById(R.id.conexionView);
+        Conexion = new SubidaDato();
     } // onCreate()
 
     // --------------------------------------------------------------
@@ -346,17 +349,17 @@ public class MainActivity extends AppCompatActivity {
         // permissions this app might request.
     } // ()
 
-    public void SubirDato(View v) {
+    public void SubirDato( View v ) {
         // Crea el objeto Dato que deseas subir
         String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()); // La hora actual
         String valor = textView.getText().toString(); // El valor del TextView
 
-        Dato dato = new Dato("H2O",Double.parseDouble(valor), currentTime,"Mi casa" ); // Cambia estos valores según lo que necesites
+        Dato dato = new Dato(currentTime, "Mi casa", "H2O", Double.parseDouble(valor)); // Cambia estos valores según lo que necesites
         Conexion.SubirDato(dato);
     }
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    public void ComprobarConexion(View v) {
+    public void ComprobarConexion( View v ) {
         String responseMessage = Conexion.ComprobarConexion();
 
         // Cambia el TextView para mostrar la respuesta
