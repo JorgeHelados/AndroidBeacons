@@ -148,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
         Log.d(ETIQUETA_LOG, " ****************************************************");
 
+        int minor = Utilidades.bytesToIntOK(tib.getMinor());
+
+        // Actualiza el TextView con la medición
+        String medicion = Integer.toString(minor);
+        textView.setText(medicion);
     } // ()
 
     // --------------------------------------------------------------
@@ -240,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         //this.buscarEsteDispositivoBTLE( Utilidades.stringToUUID( "EPSG-GTI-PROY-3A" ) );
 
         //this.buscarEsteDispositivoBTLE( "EPSG-GTI-PROY-3A" );
-        this.buscarEsteDispositivoBTLE( "fistro" );
+        this.buscarEsteDispositivoBTLE( "SOY-UN-TECLADO--" );
 
     } // ()
 
