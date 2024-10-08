@@ -11,11 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SubidaDato {
 
-    private static final String BASE_URL = "http://192.168.69.191:4000/";   // Esto es mi IP y el puerto de admin
+    private static final String BASE_URL = "http://192.168.69.191:4000/"; // Esto es mi IP y el puerto de admin
     private ApiService apiService;
     private Dato dato; // Variable para almacenar el dato que se va a subir
 
-    // Constructor
+    // ----------------------------------------------------------
+    // SubidaDato()
+    // ----------------------------------------------------------
     public SubidaDato() {
         // Configurar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -28,6 +30,9 @@ public class SubidaDato {
     }
 
     // Método para subir un dato
+    // ----------------------------------------------------------
+    // Dato -> SubirDato()
+    // ----------------------------------------------------------
     public void SubirDato(Dato dato) {
         Call<Dato> call = apiService.subirDato(dato);
 
@@ -49,8 +54,10 @@ public class SubidaDato {
         });
     }
 
-
     // Método para comprobar la conexión
+    // ----------------------------------------------------------
+    // ComprobarConexion() -> String
+    // ----------------------------------------------------------
     public String ComprobarConexion() {
         final String[] responseMessage = {null}; // Array para almacenar el mensaje de respuesta
 

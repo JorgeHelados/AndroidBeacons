@@ -10,6 +10,7 @@ import java.util.UUID;
 public class Utilidades {
 
     // -------------------------------------------------------------------------------
+    // String -> stringToBytes() -> byte[]
     // -------------------------------------------------------------------------------
     public static byte[] stringToBytes ( String texto ) {
         return texto.getBytes();
@@ -17,6 +18,7 @@ public class Utilidades {
     } // ()
 
     // -------------------------------------------------------------------------------
+    // String -> stringToUUID() -> UUID
     // -------------------------------------------------------------------------------
     public static UUID stringToUUID( String uuid ) {
         if ( uuid.length() != 16 ) {
@@ -35,19 +37,22 @@ public class Utilidades {
         return res;
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    // ----------------------------------------------------------
+    // UUID -> uuidToString() -> String
+    // ----------------------------------------------------------
     public static String uuidToString ( UUID uuid ) {
         return bytesToString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    // ----------------------------------------------------------
+    // UUID -> uuidToHexString() -> String
+    // ----------------------------------------------------------
     public static String uuidToHexString ( UUID uuid ) {
         return bytesToHexString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
     } // ()
 
     // -------------------------------------------------------------------------------
+    // byte[] -> bytesToString() -> String
     // -------------------------------------------------------------------------------
     public static String bytesToString( byte[] bytes ) {
         if (bytes == null ) {
@@ -62,6 +67,7 @@ public class Utilidades {
     }
 
     // -------------------------------------------------------------------------------
+    // long, long -> dosLongToBytes() -> byte[]
     // -------------------------------------------------------------------------------
     public static byte[] dosLongToBytes( long masSignificativos, long menosSignificativos ) {
         ByteBuffer buffer = ByteBuffer.allocate( 2 * Long.BYTES );
@@ -71,18 +77,21 @@ public class Utilidades {
     }
 
     // -------------------------------------------------------------------------------
+    // byte[] -> bytesToInt() -> int
     // -------------------------------------------------------------------------------
     public static int bytesToInt( byte[] bytes ) {
         return new BigInteger(bytes).intValue();
     }
 
     // -------------------------------------------------------------------------------
+    // byte[] -> bytesToLong() -> long
     // -------------------------------------------------------------------------------
     public static long bytesToLong( byte[] bytes ) {
         return new BigInteger(bytes).longValue();
     }
 
     // -------------------------------------------------------------------------------
+    // byte[] -> bytesToIntOK() -> int
     // -------------------------------------------------------------------------------
     public static int bytesToIntOK( byte[] bytes ) {
         if (bytes == null ) {
@@ -121,6 +130,7 @@ public class Utilidades {
     } // ()
 
     // -------------------------------------------------------------------------------
+    // byte[] -> bytesToHexString() -> String
     // -------------------------------------------------------------------------------
     public static String bytesToHexString( byte[] bytes ) {
 
@@ -136,7 +146,3 @@ public class Utilidades {
         return sb.toString();
     } // ()
 } // class
-// -----------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------

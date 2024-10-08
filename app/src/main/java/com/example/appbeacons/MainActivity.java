@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ScanCallback callbackDelEscaneo = null;
 
     // --------------------------------------------------------------
+    // void -> buscarTodosLosDispositivosBTLE()
     // --------------------------------------------------------------
     private void buscarTodosLosDispositivosBTLE() {
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): empieza ");
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // ScanResult -> mostrarInformacionDispositivoBTLE() -> void
     // --------------------------------------------------------------
     private void mostrarInformacionDispositivoBTLE( ScanResult resultado ) {
 
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // String -> buscarEsteDispositivoBTLE() -> void
     // --------------------------------------------------------------
     private void buscarEsteDispositivoBTLE(final String dispositivoBuscado ) {
         Log.d(ETIQUETA_LOG, " buscarEsteDispositivoBTLE(): empieza ");
@@ -209,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // void -> detenerBusquedaDispositivosBTLE() -> void
     // --------------------------------------------------------------
     private void detenerBusquedaDispositivosBTLE() {
 
@@ -232,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // View -> botonBuscarDispositivosBTLEPulsado() -> void
     // --------------------------------------------------------------
     public void botonBuscarDispositivosBTLEPulsado( View v ) {
         Log.d(ETIQUETA_LOG, " boton buscar dispositivos BTLE Pulsado" );
@@ -239,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // View -> botonBuscarNuestroDispositivoBTLEPulsado() -> void
     // --------------------------------------------------------------
     public void botonBuscarNuestroDispositivoBTLEPulsado( View v ) {
         Log.d(ETIQUETA_LOG, " boton nuestro dispositivo BTLE Pulsado" );
@@ -250,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // View -> botonDetenerBusquedaDispositivosBTLEPulsado() -> void
     // --------------------------------------------------------------
     public void botonDetenerBusquedaDispositivosBTLEPulsado( View v ) {
         Log.d(ETIQUETA_LOG, " boton detener busqueda dispositivos BTLE Pulsado" );
@@ -257,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    // void -> inicializarBlueTooth() -> void
     // --------------------------------------------------------------
     private void inicializarBlueTooth() {
         Log.d(ETIQUETA_LOG, " inicializarBlueTooth(): obtenemos adaptador BT ");
@@ -311,6 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // --------------------------------------------------------------
+    // Bundle -> onCreate() -> void
     // --------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -329,6 +338,7 @@ public class MainActivity extends AppCompatActivity {
     } // onCreate()
 
     // --------------------------------------------------------------
+    // int, String[], int[] -> onRequestPermissionsResult() -> void
     // --------------------------------------------------------------
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
@@ -354,6 +364,9 @@ public class MainActivity extends AppCompatActivity {
         // permissions this app might request.
     } // ()
 
+    // --------------------------------------------------------------
+    // View -> SubirDato() -> void
+    // --------------------------------------------------------------
     public void SubirDato( View v ) {
         // Crea el objeto Dato que deseas subir
         String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()); // La hora actual
@@ -362,7 +375,9 @@ public class MainActivity extends AppCompatActivity {
         Dato dato = new Dato(currentTime, "Mi casa", "H2O", Double.parseDouble(valor)); // Cambia estos valores según lo que necesites
         Conexion.SubirDato(dato);
     }
+
     // --------------------------------------------------------------
+    // View -> ComprobarConexion() -> void
     // --------------------------------------------------------------
     public void ComprobarConexion( View v ) {
         String responseMessage = Conexion.ComprobarConexion();
