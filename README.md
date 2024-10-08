@@ -67,6 +67,3 @@ Para enviar datos a un servidor, asegúrate de actualizar la URL base en el arch
 ```bash
 private static final String BASE_URL = "http://TU_IP:PUERTO/";
 ```
-
-## Autor
-Desarrollado y mantenido por Jorge Satorres Pardo.
